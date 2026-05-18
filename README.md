@@ -69,5 +69,23 @@ streamlit run app.py
 ```
 
 ---
+## Files
+
+Finsight/
+├── app.py
+├── requirements.txt
+├── data/
+│   ├── transactions.csv
+│   └── transactions_flagged.csv
+├── notebooks/
+│   ├── 01_data_generation.ipynb
+│   ├── 02_sql_storage.ipynb
+│   ├── 03_eda.ipynb
+│   ├── 04_anomaly_detection.ipynb
+│   ├── 05_visualization.ipynb
+│   └── 06_summary_report.ipynb
+└── plots/
+
+Parth — github.com/parth2508
 
 ## Files
