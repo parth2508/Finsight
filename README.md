@@ -72,7 +72,7 @@ streamlit run app.py
 
 ## Files
 
-'''
+```
 Finsight/
 ├── app.py
 ├── requirements.txt
@@ -87,8 +87,7 @@ Finsight/
 │   ├── 05_visualization.ipynb
 │   └── 06_summary_report.ipynb
 └── plots/
-
-'''
+```
 ---
 
 Parth — github.com/parth2508
