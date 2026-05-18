@@ -71,6 +71,7 @@ streamlit run app.py
 ---
 
 ## Files
+
 '''
 Finsight/
 ├── app.py
@@ -86,6 +87,7 @@ Finsight/
 │   ├── 05_visualization.ipynb
 │   └── 06_summary_report.ipynb
 └── plots/
+
 '''
 ---
 
