@@ -69,8 +69,8 @@ streamlit run app.py
 ```
 
 ---
-## Files
 
+## Files
 Finsight/
 ├── app.py
 ├── requirements.txt
@@ -86,6 +86,9 @@ Finsight/
 │   └── 06_summary_report.ipynb
 └── plots/
 
+---
+
 Parth — github.com/parth2508
 
-## Files
+SupplyIQ README
+markdown# SupplyIQ — Supply Chain Analytics
