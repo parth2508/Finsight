@@ -67,13 +67,13 @@ def input_section():
         st.info("""
 **Required Format** — Your file must have exactly these 3 columns:
 - **date** → YYYY-MM-DD format (e.g. 2024-01-15)
-- **category** → One of: Food, Transport, Shopping, Utilities, Entertainment, Healthcare
+- **category** → Any category name of your choice (e.g. Food, Rent, Netflix, Gym)
 - **amount** → Numbers only (e.g. 450.00) — no ₹ symbol or commas
         """)
         sample = pd.DataFrame({
             'date':['2024-01-01', '2024-01-01', '2024-01-02'],
-            'category':['Food', 'Transport', 'Shopping'],
-            'amount':[450, 200, 1500]
+            'category':['Food', 'Rent', 'Netflix'],
+            'amount':[450, 12000, 499]
         })
         st.markdown("**Example:**")
         st.dataframe(sample, hide_index=True)
@@ -84,24 +84,26 @@ def input_section():
             st.dataframe(df.head())
 
     elif mode == "Enter Manually":
-        categories = ['Food', 'Transport', 'Shopping', 'Utilities', 'Entertainment', 'Healthcare']
         if 'manual_data' not in st.session_state:
             st.session_state.manual_data = []
         col1, col2, col3, col4 = st.columns(4)
         with col1:
             date_input = st.date_input("Date")
         with col2:
-            cat_input = st.selectbox("Category", categories)
+            cat_input = st.text_input("Category", placeholder="e.g. Food, Rent, Netflix")
         with col3:
             amt_input = st.number_input("Amount (₹)", min_value=1.0, value=500.0)
         with col4:
             st.markdown("<br>", unsafe_allow_html=True)
             if st.button("➕ Add"):
-                st.session_state.manual_data.append({
-                    'date':pd.Timestamp(date_input),
-                    'category':cat_input,
-                    'amount':amt_input
-                })
+                if cat_input.strip() == "":
+                    st.warning("Please enter a category name.")
+                else:
+                    st.session_state.manual_data.append({
+                        'date':pd.Timestamp(date_input),
+                        'category':cat_input.strip().title(),
+                        'amount':amt_input
+                    })
         if st.session_state.manual_data:
             df = pd.DataFrame(st.session_state.manual_data)
             st.dataframe(df)
@@ -423,4 +425,3 @@ elif page == "Learn":
 
     st.markdown("---")
     st.info("Go to **Detector** or **Insights** in the sidebar to start analyzing your transactions!")
-    
