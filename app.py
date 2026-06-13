@@ -13,7 +13,6 @@ st.set_page_config(page_title="Finance Anomaly Detector", page_icon="💸", layo
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Detector", "Spending Insights", "Learn"])
 
-#Only show detection settings on Detector page
 if page == "Detector":
     st.sidebar.markdown("---")
     st.sidebar.header("Settings")
@@ -113,7 +112,7 @@ def input_section():
                 st.session_state.manual_data = []
     return df
 
-# PAGE 1 - DETECTOR
+# PAGE DETECTOR
 if page == "Detector":
     st.title("Personal Finance Anomaly Detector")
     st.markdown("Upload your transactions or enter them manually to detect unusual spending patterns.")
@@ -218,7 +217,7 @@ if page == "Detector":
         st.warning("Please add at least 10 transactions for meaningful analysis.")
 
 
-# PAGE 2 SPENDING INSIGHTS
+# PAGE SPENDING INSIGHTS
 elif page == "Spending Insights":
     st.title("Spending Insights")
     st.markdown("Understand where your money is going — by category, by day, and over time.")
@@ -304,7 +303,7 @@ elif page == "Spending Insights":
     elif df is not None and len(df) == 0:
         st.warning("No data found. Please add transactions first.")
 
-#PAGE 3 LEARN
+#PAGE LEARN
 elif page == "Learn":
     st.title("How Does Anomaly Detection Work?")
     st.markdown("---")
